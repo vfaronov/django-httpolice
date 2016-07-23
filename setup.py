@@ -19,7 +19,7 @@ setup(
     version=metadata['version'],
     description='Django integration for HTTPolice',
     long_description=long_description,
-    url='https://github.com/vfaronov/httpolice',
+    url='https://github.com/vfaronov/django-httpolice',
     author='Vasiliy Faronov',
     author_email='vfaronov@gmail.com',
     license='MIT',

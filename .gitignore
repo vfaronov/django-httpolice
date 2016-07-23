@@ -1,0 +1,3 @@
+*.pyc
+.cache
+Django_HTTPolice.egg-info

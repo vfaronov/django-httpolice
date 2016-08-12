@@ -1,3 +1,20 @@
+include requirements.in
+include setup.cfg
+
 include README.rst
 include LICENSE.txt
 include CHANGELOG.rst
+
+include .isort.cfg
+include pylintrc
+
+# Even though Travis only works on a Git repo,
+# this file is important as a reference on the build procedure.
+include .travis.yml
+
+graft doc
+prune doc/_build
+graft example
+graft tools
+
+global-exclude *.pyc

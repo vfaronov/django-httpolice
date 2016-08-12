@@ -10,3 +10,7 @@ __ https://www.djangoproject.com/
 `Read the docs`__.
 
 __ http://django-httpolice.readthedocs.io/
+
+Many details from the `main repo`__'s ``HACKING.rst`` apply here as well.
+
+__ https://github.com/vfaronov/httpolice

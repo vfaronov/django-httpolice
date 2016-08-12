@@ -13,6 +13,10 @@ with io.open(os.path.join('django_httpolice', '__metadata__.py'), 'rb') as f:
 with io.open('README.rst') as f:
     long_description = f.read()
 
+with io.open('requirements.in') as f:
+    install_requires = [line for line in f
+                        if line and not line.startswith('#')]
+
 
 setup(
     name='Django-HTTPolice',
@@ -23,10 +27,7 @@ setup(
     author='Vasiliy Faronov',
     author_email='vfaronov@gmail.com',
     license='MIT',
-    install_requires=[
-        'Django >=1.8.0',
-        'HTTPolice >=0.2.0',
-    ],
+    install_requires=install_requires,
     packages=['django_httpolice'],
     classifiers=[
         'Framework :: Django',

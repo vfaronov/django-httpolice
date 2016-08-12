@@ -1,0 +1,51 @@
+language: python
+
+python:
+    - "2.7"
+    - "pypy"
+    - "3.4"
+    - "3.5"
+
+env:
+    - REQUIRES=minimum
+    - REQUIRES=normal
+
+install:
+    - if [ "$REQUIRES" = minimum ]; then tools/minimum_requires.sh; fi
+    - pip install -e .
+    - pip install -r tools/requirements.txt
+
+cache: pip
+
+script:
+    # Basic stuff.
+    - python setup.py check --strict --restructuredtext
+    - tools/pylint_all.sh -j 2
+    - tools/check_example.sh
+
+    # Although the docs are processed by Read the Docs,
+    # we still want to check that they are building OK.
+    - sphinx-build -W doc/ doc/_build/
+
+    # Check the assorted reStructuredText documents at the top of the repo.
+    - tools/check_rst.sh
+
+    # Check that the source distribution includes everything it should,
+    # and nothing it shouldn't (including all the files we just built).
+    - check-manifest
+
+deploy:
+    on:
+        tags: true
+        # Only release from one of the environments.
+        python: "3.5"
+        condition: $REQUIRES = normal
+    provider: pypi
+    user: vfaronov
+    password:
+        secure: SdWuegOFqGpR6+Hz7W8a8paibPsCnVh0lyVzCpNWQT/8g8+UA/cCCm7o+egB55XDmUfY7myB12ZJEHJXEzRENfKdYbZtx+JnXED0pdbfmTIhSLl1YzS3+nlOHzJu0wn7DHd1/qRu3ykkGcqrW7thrarfitrhV6K82R8rKAT2y0YaxBRGkd6TzB53z4Ye6ZwCAFMUxanuGMiaIC2CyRuLy+srDI5Xz35jloLSoJvnOrTCoiVnmlBHDF1jaf3GkiFwjwVXC3jFo9QV87jDBCOmh7SIqGxQexCrVNXAFLPZgjeuBn/zgCbIf/AK7Bb4Hm/gkeF4oxJ7mCfeiK7hIxsW/FGQOndrrTuExLjr/8GvL1D1sPVM8R0mnBA6I7J9J0AUxHcWOvZhVBaE4bkwOEsBOnN0o1ApL9sI7DVYdoSFDoIyBDzxyURK39+EcMNMGJvMRTtKcSV5qs3bCd7qJwUjLpvWktP5lmuQnQS0uWwOaR6ZVW8F/d4iedWd+U3WtwSaLatZhhwoAYgHze9/qWokb404+anEYSjvVjvB2bIG4lg7naQANBCoW41UZnMRb2lzpwERYnUghNxCjy+VV0HbnWDtsiXpyAlk5eJO+ysUOkdOqRkxw5rMW5HrLq5CY0jS5H22TRWHRF/XT/R4n1oL5TAcvLKLIQ6ljvSWS9xghHg=
+    distributions: "sdist bdist_wheel"
+    # Travis insists on uploading the docs --
+    # https://github.com/travis-ci/dpl/issues/334 --
+    # but we can tell it to upload a stub instead of the actual docs.
+    docs_dir: tools/pythonhosted.org

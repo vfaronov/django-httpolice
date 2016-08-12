@@ -1,6 +1,7 @@
 from os.path import dirname, join
 import sys
 
+import django
 import django.conf
 
 
@@ -8,7 +9,7 @@ def pytest_configure():
     example_path = join(dirname(dirname(__file__)), 'example')
     if example_path not in sys.path:
         sys.path.insert(0, example_path)
-    SETTINGS = {
+    settings = {
         'DEBUG': True,
         'MIDDLEWARE_CLASSES': [
             'django_httpolice.HTTPoliceMiddleware',
@@ -22,4 +23,6 @@ def pytest_configure():
         'HTTPOLICE_ENABLE': True,
         'HTTPOLICE_SILENCE': [1070, 1110],
     }
-    django.conf.settings.configure(**SETTINGS)
+    if django.VERSION >= (1, 10):   # pragma: no cover
+        settings['MIDDLEWARE'] = settings.pop('MIDDLEWARE_CLASSES')
+    django.conf.settings.configure(**settings)

@@ -30,7 +30,8 @@ Installation
 .. highlight:: py
 
 This package provides :class:`django_httpolice.HTTPoliceMiddleware`.
-Add it to your `MIDDLEWARE_CLASSES`, as close to the top as possible::
+Add it to your `MIDDLEWARE` or `MIDDLEWARE_CLASSES`,
+as close to the top as possible::
 
   MIDDLEWARE_CLASSES = [
       'django_httpolice.HTTPoliceMiddleware',

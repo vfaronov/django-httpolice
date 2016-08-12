@@ -7,11 +7,13 @@ include CHANGELOG.rst
 
 include .isort.cfg
 include pylintrc
+include pytest.ini
 
 # Even though Travis only works on a Git repo,
 # this file is important as a reference on the build procedure.
 include .travis.yml
 
+graft test
 graft doc
 prune doc/_build
 graft example

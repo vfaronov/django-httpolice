@@ -1,4 +1,6 @@
 *.pyc
 .cache
+.coverage
 _build
+htmlcov
 Django_HTTPolice.egg-info

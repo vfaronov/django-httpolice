@@ -2,6 +2,8 @@ pip-tools
 check-manifest
 pylint
 pylint-django
+pytest
+pytest-cov
 docutils
 wheel
 twine

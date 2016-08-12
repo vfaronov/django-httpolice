@@ -88,7 +88,7 @@ whenever a **response** is found to have any errors
 This can be used to fail tests on errors::
 
   $ python manage.py test
-  .E.
+  .E..
   ======================================================================
   ERROR: test_get_plain (example_app.test.ExampleTestCase)
   ----------------------------------------------------------------------
@@ -97,14 +97,14 @@ This can be used to fail tests on errors::
     File "[...]/django_httpolice/middleware.py", line 81, in process_response
       raise ProtocolError(exchange)
   django_httpolice.common.ProtocolError: HTTPolice found errors in this response:
-  ------------ request: GET /api/v1/?name=Martha&format=plain
+  ------------ request: GET /api/v1/greet/?name=Martha&format=plain
   C 1070 No User-Agent header
   ------------ response: 200 OK
   E 1038 Bad JSON body
   
   
   ----------------------------------------------------------------------
-  Ran 3 tests in 0.351s
+  Ran 4 tests in 0.351s
   
   FAILED (errors=1)
 

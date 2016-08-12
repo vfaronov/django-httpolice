@@ -1,5 +1,6 @@
 # -*- coding: utf-8; -*-
 
+from django_httpolice.__metadata__ import version as __version__
 from django_httpolice.common import ProtocolError
 from django_httpolice.middleware import HTTPoliceMiddleware, backlog
 from django_httpolice.views import report_view

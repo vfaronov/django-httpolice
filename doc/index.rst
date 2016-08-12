@@ -7,6 +7,18 @@ Django-HTTPolice is a package that integrates `HTTPolice`__ into Django 1.8+.
 
 __ http://httpolice.readthedocs.io/en/stable/
 
+For recent changes in Django-HTTPolice, see the `changelog`__.
+
+__ https://github.com/vfaronov/django-httpolice/blob/master/CHANGELOG.rst
+
+
+Example
+-------
+For a small example of Django-HTTPolice in action,
+see the `example directory`__ in the Git repo.
+
+__ https://github.com/vfaronov/django-httpolice/tree/master/example
+
 
 Installation
 ------------
@@ -61,6 +73,7 @@ If `HTTPOLICE_ENABLE` is not `True`, the view responds with 404 (Not Found).
 You can also access the backlog from your own code:
 it’s in the :data:`django_httpolice.backlog` variable,
 as a sequence of :class:`httpolice.Exchange` objects.
+The latest exchange is ``backlog[0]``.
 
 
 Raising on errors
@@ -84,9 +97,9 @@ This can be used to fail tests on errors::
     File "[...]/django_httpolice/middleware.py", line 81, in process_response
       raise ProtocolError(exchange)
   django_httpolice.common.ProtocolError: HTTPolice found errors in this response:
-  ------------ request 1 : GET /api/v1/?name=Martha&format=plain
+  ------------ request: GET /api/v1/?name=Martha&format=plain
   C 1070 No User-Agent header
-  ------------ response 1 : 200 OK
+  ------------ response: 200 OK
   E 1038 Bad JSON body
   
   

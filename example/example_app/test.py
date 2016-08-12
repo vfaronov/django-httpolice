@@ -9,21 +9,25 @@ import example_app.views
 
 class ExampleTestCase(unittest.TestCase):
 
-    def test_get_json(self):
-        response = Client().get(reverse(example_app.views.greet),
-                                {'format': 'json', 'name': u'Martha'})
+    def test_query_json(self):
+        response = Client().get(reverse(example_app.views.words),
+                                {'query': u'er'},
+                                HTTP_ACCEPT='application/json')
         data = json.loads(response.content.decode('utf-8'))
-        self.assertEqual(data['hello'], u'Martha')
+        self.assertEqual(data['matches'],
+                         ['intermediary', 'otherwise', 'shatters'])
 
-    def test_get_plain(self):
-        response = Client().get(reverse(example_app.views.greet),
-                                {'format': 'plain', 'name': u'Martha'})
-        self.assertEqual(response.content, b'Hello Martha!\n')
+    def test_query_plain(self):
+        response = Client().get(reverse(example_app.views.words),
+                                {'query': u'er'})
+        self.assertEqual(response.content,
+                         b'intermediary\notherwise\nshatters\n')
 
-    def test_no_params(self):
-        response = Client().get(reverse(example_app.views.greet))
-        self.assertEqual(response.status_code, 200)
+    def test_add_word(self):
+        Client().post(reverse(example_app.views.words),
+                      data='foo bar baz', content_type='text/plain')
+        self.assertTrue(u'bar' in example_app.views.all_words)
 
-    def test_stream(self):
-        response = Client().get(reverse(example_app.views.stream_greeting))
+    def test_all_words(self):
+        response = Client().get(reverse(example_app.views.words))
         self.assertTrue(response.streaming)     # pylint: disable=no-member

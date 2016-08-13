@@ -7,6 +7,15 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_
 (which means it is unstable until 1.0).
 
 
+Unreleased
+~~~~~~~~~~
+
+Removed
+-------
+- The deprecated form ``HTTPOLICE_RAISE = True`` is no longer supported.
+  Use ``HTTPOLICE_RAISE = 'error'`` (or ``'comment'``) instead.
+
+
 0.2.0 - 2016-08-14
 ~~~~~~~~~~~~~~~~~~
 Added

@@ -84,10 +84,7 @@ class HTTPoliceMiddleware(MiddlewareBase):
 
         raise_on = get_setting('RAISE')
         if raise_on:
-            if raise_on == True:    # backward compatibility
-                min_severity = httpolice.Severity.error
-            else:
-                min_severity = httpolice.Severity[raise_on]
+            min_severity = httpolice.Severity[raise_on]
             if any(notice.severity >= min_severity for notice in resp.notices):
                 raise ProtocolError(exchange)
 

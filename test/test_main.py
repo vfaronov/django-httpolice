@@ -110,14 +110,6 @@ def test_raise(client):
         assert len(django_httpolice.backlog) == 1
 
 
-def test_raise_boolean(client):
-    # Test the old format of ``HTTPOLICE_RAISE`` for backward compatibility.
-    with override_settings(HTTPOLICE_RAISE=True):
-        with pytest.raises(django_httpolice.ProtocolError):
-            client.get('/api/v1/words/?query=er')
-        assert len(django_httpolice.backlog) == 1
-
-
 def test_raise_comment(client):
     # Disable silencing notice 1110 ("<status> response with no Date header").
     with override_settings(HTTPOLICE_SILENCE=[]):

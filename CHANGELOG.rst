@@ -13,6 +13,15 @@ Added
 -----
 - The middleware is now compatible with new-style (Django 1.10+) ``MIDDLEWARE``
   as well as old-style ``MIDDLEWARE_CLASSES``.
+- You can now ask the middleware to raise ``ProtocolError``
+  even on notices of severity "comment"
+  by setting ``HTTPOLICE_RAISE = 'comment'``.
+
+Deprecated
+----------
+- Setting ``HTTPOLICE_RAISE = True`` is deprecated
+  in favor of the new form ``HTTPOLICE_RAISE = 'error'``.
+  The next release will only support the new form.
 
 
 0.1.0 - 2016-05-08

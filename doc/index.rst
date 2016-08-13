@@ -77,16 +77,19 @@ as a sequence of :class:`httpolice.Exchange` objects.
 The latest exchange is ``backlog[0]``.
 
 
-Raising on errors
------------------
-If you set the `HTTPOLICE_RAISE` setting to `True`,
+Raising on notices
+------------------
+If you set the `HTTPOLICE_RAISE` setting to ``'error'``,
 then the middleware will raise a :exc:`django_httpolice.ProtocolError`
-whenever a **response** is found to have any errors
+whenever a **response** is found to have any notices of severity "error"
 (that are not :ref:`silenced <django-silence>`).
+If you set it to ``'comment'``, this will happen even for severity "comment".
+
+The exchange is still added to the backlog.
 
 .. highlight:: console
 
-This can be used to fail tests on errors::
+This can be used to fail tests on problems::
 
   $ python manage.py test
   ...E
@@ -95,9 +98,9 @@ This can be used to fail tests on errors::
   ----------------------------------------------------------------------
   Traceback (most recent call last):
     [...]
-    File "[...]/django_httpolice/middleware.py", line 81, in process_response
+    File "[...]/django_httpolice/middleware.py", line 92, in process_response
       raise ProtocolError(exchange)
-  django_httpolice.common.ProtocolError: HTTPolice found errors in this response:
+  django_httpolice.common.ProtocolError: HTTPolice found problems in this response:
   ------------ request: GET /api/v1/words/?query=er
   C 1070 No User-Agent header
   ------------ response: 200 OK
@@ -110,8 +113,6 @@ This can be used to fail tests on errors::
   FAILED (errors=1)
 
 .. highlight:: py
-
-The exchange is still added to the backlog.
 
 
 .. _django-silence:

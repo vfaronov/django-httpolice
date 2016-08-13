@@ -82,9 +82,14 @@ class HTTPoliceMiddleware(MiddlewareBase):
         httpolice.check_exchange(exchange)
         backlog.appendleft(exchange)
 
-        if get_setting('RAISE') and any(notice.severity == httpolice.ERROR
-                                        for notice in resp.notices):
-            raise ProtocolError(exchange)
+        raise_on = get_setting('RAISE')
+        if raise_on:
+            if raise_on == True:    # backward compatibility
+                min_severity = httpolice.Severity.error
+            else:
+                min_severity = httpolice.Severity[raise_on]
+            if any(notice.severity >= min_severity for notice in resp.notices):
+                raise ProtocolError(exchange)
 
         return response
 

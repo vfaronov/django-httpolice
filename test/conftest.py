@@ -10,6 +10,7 @@ def pytest_configure():
     if example_path not in sys.path:
         sys.path.insert(0, example_path)
     settings = {
+        'ALLOWED_HOSTS': ['testserver'],
         'DEBUG': True,
         'MIDDLEWARE_CLASSES': [
             'django_httpolice.HTTPoliceMiddleware',

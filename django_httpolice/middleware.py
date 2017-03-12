@@ -80,7 +80,7 @@ class HTTPoliceMiddleware(MiddlewareBase):
         exchange = httpolice.Exchange(req, [resp])
         exchange.silence(get_setting('SILENCE'))
         httpolice.check_exchange(exchange)
-        backlog.appendleft(exchange)
+        backlog.append(exchange)
 
         raise_on = get_setting('RAISE')
         if raise_on:

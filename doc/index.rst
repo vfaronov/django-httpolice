@@ -67,7 +67,7 @@ Add it to your URLconf like this::
 
 When you start the server and open ``/httpolice/`` (or whatever URL you chose),
 you will see an HTML report on all the exchanges currently in the backlog.
-The **latest** exchanges are shown at the **top** of the report.
+The **latest** exchanges are shown at the **bottom** of the report.
 
 If `HTTPOLICE_ENABLE` is not `True`, the view responds with 404 (Not Found).
 

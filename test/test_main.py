@@ -19,7 +19,7 @@ def client(request):                # pylint: disable=unused-argument
 def test_backlog(client):
     client.get('/api/v1/words/?query=er', HTTP_ACCEPT='application/json')
     client.get('/api/v1/words/?query=er', HTTP_ACCEPT='text/plain')
-    [exch2, exch1] = django_httpolice.backlog
+    [exch1, exch2] = django_httpolice.backlog
 
     assert not notice_ids(exch1)
     assert notice_ids(exch1.request) == []

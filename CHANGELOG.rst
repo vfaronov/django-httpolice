@@ -10,6 +10,8 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_
 Unreleased
 ~~~~~~~~~~
 
+- For consistency, the backlog view now shows exchanges in direct order
+  (that is, the latest exchange is now at the bottom).
 - The deprecated form ``HTTPOLICE_RAISE = True`` is no longer supported.
   Use ``HTTPOLICE_RAISE = 'error'`` (or ``'comment'``) instead.
 

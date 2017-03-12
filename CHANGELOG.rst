@@ -7,8 +7,8 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_
 (which means it is unstable until 1.0).
 
 
-Unreleased
-~~~~~~~~~~
+0.3.0 - 2017-03-12
+~~~~~~~~~~~~~~~~~~
 
 - For consistency, the backlog view now shows exchanges in direct order
   (that is, the latest exchange is now at the bottom).

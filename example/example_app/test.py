@@ -30,4 +30,4 @@ class ExampleTestCase(unittest.TestCase):
 
     def test_all_words(self):
         response = Client().get(reverse(example_app.views.words))
-        self.assertTrue(response.streaming)     # pylint: disable=no-member
+        self.assertTrue(response.streaming)

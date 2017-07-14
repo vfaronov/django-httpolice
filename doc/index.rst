@@ -74,7 +74,7 @@ If `HTTPOLICE_ENABLE` is not `True`, the view responds with 404 (Not Found).
 You can also access the backlog from your own code:
 it’s in the :data:`django_httpolice.backlog` variable,
 as a sequence of :class:`httpolice.Exchange` objects.
-The latest exchange is ``backlog[0]``.
+The latest exchange is ``backlog[-1]``.
 
 
 Raising on notices

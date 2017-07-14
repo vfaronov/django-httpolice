@@ -1,5 +1,6 @@
-`HTTPolice`__ is a **lint for HTTP requests and responses**.
-It checks them for conformance to standards and best practices.
+`HTTPolice`__ is a **validator for HTTP requests and responses**. It can spot
+bad header syntax, inappropriate status codes, and other interoperability
+problems in your HTTP server or client.
 
 __ https://github.com/vfaronov/httpolice
 

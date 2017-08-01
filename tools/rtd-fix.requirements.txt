@@ -1,0 +1,6 @@
+# This file is specified in this project's Read the Docs "advanced settings"
+# as the requirements file. Otherwise RtD uses Sphinx 1.5.3, which suffers from
+# https://github.com/rtfd/readthedocs.org/issues/2398. This should be removed
+# when RtD upgrades to a newer Sphinx.
+
+Sphinx==1.5.4

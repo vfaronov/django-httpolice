@@ -5,7 +5,7 @@ Django integration for HTTPolice
 
 Django-HTTPolice is a package that integrates `HTTPolice`__ into Django 1.8+.
 
-__ http://httpolice.readthedocs.io/en/stable/
+__ http://httpolice.readthedocs.io/
 
 For recent changes in Django-HTTPolice, see the `changelog`__.
 

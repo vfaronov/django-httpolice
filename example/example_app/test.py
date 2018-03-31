@@ -1,8 +1,8 @@
 import json
 import unittest
 
-from django.core.urlresolvers import reverse
 from django.test import Client
+from django.urls import reverse
 
 import example_app.views
 

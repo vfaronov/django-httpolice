@@ -1,7 +1,6 @@
 from os.path import dirname, join
 import sys
 
-import django
 import django.conf
 
 
@@ -12,7 +11,7 @@ def pytest_configure():
     settings = {
         'ALLOWED_HOSTS': ['testserver'],
         'DEBUG': True,
-        'MIDDLEWARE_CLASSES': [
+        'MIDDLEWARE': [
             'django_httpolice.HTTPoliceMiddleware',
             'django.middleware.security.SecurityMiddleware',
             'django.middleware.common.CommonMiddleware',
@@ -24,6 +23,4 @@ def pytest_configure():
         'HTTPOLICE_ENABLE': True,
         'HTTPOLICE_SILENCE': [1070, 1110],
     }
-    if django.VERSION >= (1, 10):   # pragma: no cover
-        settings['MIDDLEWARE'] = settings.pop('MIDDLEWARE_CLASSES')
     django.conf.settings.configure(**settings)

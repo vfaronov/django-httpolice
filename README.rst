@@ -4,7 +4,7 @@ problems in your HTTP server or client.
 
 __ https://github.com/vfaronov/httpolice
 
-This package provides `Django`__ 1.8+ integration for HTTPolice.
+This package provides `Django`__ 1.11+ integration for HTTPolice.
 
 __ https://www.djangoproject.com/
 

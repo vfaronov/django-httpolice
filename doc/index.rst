@@ -3,7 +3,7 @@ Django integration for HTTPolice
 
 .. highlight:: console
 
-Django-HTTPolice is a package that integrates `HTTPolice`__ into Django 1.8+.
+Django-HTTPolice is a package that integrates `HTTPolice`__ into Django 1.11+.
 
 __ http://httpolice.readthedocs.io/
 
@@ -30,10 +30,9 @@ Installation
 .. highlight:: py
 
 This package provides :class:`django_httpolice.HTTPoliceMiddleware`.
-Add it to your `MIDDLEWARE` or `MIDDLEWARE_CLASSES`,
-as close to the top as possible::
+Add it to your `MIDDLEWARE` list, as close to the top as possible::
 
-  MIDDLEWARE_CLASSES = [
+  MIDDLEWARE = [
       'django_httpolice.HTTPoliceMiddleware',
       'django.middleware.common.CommonMiddleware',
       # ...

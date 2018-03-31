@@ -2,6 +2,14 @@ History of changes
 ==================
 
 
+Unreleased
+~~~~~~~~~~
+
+- Supports Django 2.0.
+- No longer supports Django prior to 1.11.
+- No longer supports old-style ``MIDDLEWARE_CLASSES``.
+
+
 0.3.0 - 2017-03-12
 ~~~~~~~~~~~~~~~~~~
 

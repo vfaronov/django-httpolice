@@ -6,7 +6,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = ['example_app']
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django_httpolice.HTTPoliceMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',

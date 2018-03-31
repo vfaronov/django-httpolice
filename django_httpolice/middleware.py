@@ -7,20 +7,18 @@ import django.utils.encoding
 from django_httpolice.common import ProtocolError, get_setting
 
 
-try:
-    from django.utils.deprecation import MiddlewareMixin as MiddlewareBase
-except ImportError:                 # pragma: no cover
-    MiddlewareBase = object
-
-
 backlog = collections.deque(maxlen=get_setting('BACKLOG'))
 
 
-class HTTPoliceMiddleware(MiddlewareBase):
+class HTTPoliceMiddleware(object):
 
     """Captures and checks HTTP exchanges, saving them for later review."""
 
-    def process_response(self, request, response):
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
         if not get_setting('ENABLE'):
             return response
 

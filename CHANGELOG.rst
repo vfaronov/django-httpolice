@@ -2,8 +2,8 @@ History of changes
 ==================
 
 
-Unreleased
-~~~~~~~~~~
+0.4.0 - 2018-03-31
+~~~~~~~~~~~~~~~~~~
 
 - Supports Django 2.0.
 - No longer supports Django prior to 1.11.

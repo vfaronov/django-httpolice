@@ -5,7 +5,7 @@ Django integration for HTTPolice
 
 Django-HTTPolice is a package that integrates `HTTPolice`__ into Django 1.11+.
 
-__ http://httpolice.readthedocs.io/
+__ https://httpolice.readthedocs.io/
 
 For recent changes in Django-HTTPolice, see the `changelog`__.
 
@@ -128,7 +128,7 @@ They will disappear from reports and will not cause `ProtocolError`.
 By default, `HTTPOLICE_SILENCE` includes some notices
 that are irrelevant because of Django specifics, such as `1110`__.
 
-__ http://httpolice.readthedocs.io/page/notices.html#1110
+__ https://httpolice.readthedocs.io/page/notices.html#1110
 
 Of course, the ``HTTPolice-Silence`` header works, too::
 

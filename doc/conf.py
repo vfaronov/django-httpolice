@@ -120,7 +120,7 @@ html_theme = 'alabaster'
 html_theme_options = {
      'fixed_sidebar': 'true',
      'extra_nav_links': {
-          'HTTPolice user manual': 'http://httpolice.readthedocs.io/',
+          'HTTPolice user manual': 'https://httpolice.readthedocs.io/',
      },
 }
 
@@ -343,5 +343,5 @@ texinfo_documents = [
 
 
 intersphinx_mapping = {
-    'httpolice': ('http://httpolice.readthedocs.io/page/', None),
+    'httpolice': ('https://httpolice.readthedocs.io/page/', None),
 }

@@ -2,6 +2,11 @@ History of changes
 ==================
 
 
+Unreleased
+~~~~~~~~~~
+- Dropped Python 2 support. If you need it, use the older versions.
+
+
 0.4.0 - 2018-03-31
 ~~~~~~~~~~~~~~~~~~
 

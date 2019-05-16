@@ -11,7 +11,7 @@ def notice_ids(obj):
 
 
 @pytest.fixture
-def client(request):                # pylint: disable=unused-argument
+def client(request):
     django_httpolice.backlog.clear()
     return Client()
 

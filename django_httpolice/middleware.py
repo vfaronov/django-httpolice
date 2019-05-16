@@ -10,7 +10,7 @@ from django_httpolice.common import ProtocolError, get_setting
 backlog = collections.deque(maxlen=get_setting('BACKLOG'))
 
 
-class HTTPoliceMiddleware(object):
+class HTTPoliceMiddleware:
 
     """Captures and checks HTTP exchanges, saving them for later review."""
 

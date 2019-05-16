@@ -25,7 +25,7 @@ Installation
 
 ::
 
-  $ pip install Django-HTTPolice
+  $ pip3 install Django-HTTPolice
 
 .. highlight:: py
 

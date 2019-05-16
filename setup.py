@@ -13,10 +13,6 @@ with io.open(os.path.join('django_httpolice', '__metadata__.py'), 'rb') as f:
 with io.open('README.rst') as f:
     long_description = f.read()
 
-with io.open('requirements.in') as f:
-    install_requires = [line for line in f
-                        if line and not line.startswith('#')]
-
 
 setup(
     name='Django-HTTPolice',
@@ -27,20 +23,22 @@ setup(
     author='Vasiliy Faronov',
     author_email='vfaronov@gmail.com',
     license='MIT',
-    install_requires=install_requires,
+    python_requires='>= 3.4',
+    install_requires=[
+        'Django >= 1.11.0',
+        'HTTPolice >= 0.4.0',
+    ],
     packages=['django_httpolice'],
     classifiers=[
         'Framework :: Django',
-        'Framework :: Django :: 1.11',
-        'Framework :: Django :: 2.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Internet :: WWW/HTTP',

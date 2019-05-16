@@ -1,4 +1,5 @@
 # -*- coding: utf-8; -*-
+# pylint: disable=http-response-with-content-type-json
 
 import json
 
@@ -17,10 +18,9 @@ all_words = [u'absentee', u'babying', u'bankrupt', u'cottonwood',
 def words(request):
     if request.method == 'POST':
         return add_words(request)
-    elif request.GET.get('query'):
+    if request.GET.get('query'):
         return search_words(request)
-    else:
-        return stream_words()
+    return stream_words()
 
 
 def add_words(request):

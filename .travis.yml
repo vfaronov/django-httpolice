@@ -1,17 +1,19 @@
 language: python
-dist: trusty
+dist: xenial
 sudo: false
 
-python:
-    - "2.7"
-    - "pypy"
-    - "3.4"
-    - "3.5"
-    - "3.6"
-
-env:
-    - REQUIRES=minimum
-    - REQUIRES=normal
+matrix:
+    include:
+        - python: "3.4"
+          env: REQUIRES=normal
+        - python: "3.5"
+          env: REQUIRES=normal
+        - python: "3.6"
+          env: REQUIRES=normal
+        - python: "3.6"
+          env: REQUIRES=minimum
+        - python: "3.7"
+          env: REQUIRES=normal
 
 install:
     - if [ "$REQUIRES" = minimum ]; then tools/minimum_requires.sh; fi
@@ -26,7 +28,7 @@ script:
 
     # Basic stuff.
     - python setup.py check --strict --restructuredtext
-    - tools/pylint_all.sh -j 2
+    - tools/pylint_all.sh -j 2 --reports=no --score=no
     - pytest
     - tools/check_example.sh
 
@@ -45,7 +47,7 @@ deploy:
     on:
         tags: true
         # Only release from one of the environments.
-        python: "3.5"
+        python: "3.6"
         condition: $REQUIRES = normal
     provider: pypi
     user: vfaronov

@@ -125,10 +125,14 @@ you can use the `HTTPOLICE_SILENCE` setting::
 
 They will disappear from reports and will not cause `ProtocolError`.
 
-By default, `HTTPOLICE_SILENCE` includes some notices
-that are irrelevant because of Django specifics, such as `1110`__.
+By default, `HTTPOLICE_SILENCE` contains the following notices:
 
-__ https://httpolice.readthedocs.io/page/notices.html#1110
+- `1110`_ because Django doesn't set ``Date`` on its responses,
+  instead expecting the HTTP server to supply it
+- `1070`_ because Django's test client doesn't send ``User-Agent``
+
+.. _1110: https://httpolice.readthedocs.io/page/notices.html#1110
+.. _1070: https://httpolice.readthedocs.io/page/notices.html#1070
 
 Of course, the ``HTTPolice-Silence`` header works, too::
 

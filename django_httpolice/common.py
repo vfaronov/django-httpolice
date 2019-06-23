@@ -7,7 +7,7 @@ from django.utils import six
 DEFAULT_SETTINGS = {
     'HTTPOLICE_ENABLE': False,
     'HTTPOLICE_BACKLOG': 20,
-    'HTTPOLICE_SILENCE': [1110],
+    'HTTPOLICE_SILENCE': [1070, 1110],    # duplicated in docs
     'HTTPOLICE_RAISE': None,
 }
 

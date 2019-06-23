@@ -5,6 +5,10 @@ History of changes
 Unreleased
 ~~~~~~~~~~
 - Dropped Python 2 support. If you need it, use the older versions.
+- To reduce clutter in failing tests, notice `1070`_ is now silenced
+  by default (unless you override ``HTTPOLICE_SILENCE``).
+
+.. _1070: https://httpolice.readthedocs.io/page/notices.html#1070
 
 
 0.4.0 - 2018-03-31

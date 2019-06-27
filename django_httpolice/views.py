@@ -1,5 +1,3 @@
-# -*- coding: utf-8; -*-
-
 import django.http
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_http_methods

@@ -2,8 +2,8 @@ History of changes
 ==================
 
 
-Unreleased
-~~~~~~~~~~
+0.5.0 - 2019-06-27
+~~~~~~~~~~~~~~~~~~
 - Dropped Python 2 support. If you need it, use the older versions.
 - To reduce clutter in failing tests, notice `1070`_ is now silenced
   by default (unless you override ``HTTPOLICE_SILENCE``).
